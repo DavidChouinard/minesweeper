@@ -2,7 +2,7 @@ import _ from 'underscore'
 
 import Board from "../app/board"
 
-var TRIES = 1000;
+var TRIES = 100000;
 var SIZE = 10;
 var MINE_COUNT = 10;
 
