@@ -33,8 +33,6 @@ function playGame() {
               if (board[i][j].count == adjacent_bombs_found + adjacent_cells_unknown) {
                 // we assuredly have a bomb
                 var result = game.getResultForUserMove(cell[0], cell[1], true);
-                //console.log("flag", cell[0], cell[1]);
-                //console.log(game.toString());
                 if (result !== null) return result;
               } else {
                 var probability = (board[i][j].count - adjacent_bombs_found) / adjacent_cells_unknown;
@@ -72,24 +70,8 @@ function playGame() {
     }
 
     var result = game.getResultForUserMove(move[0], move[1], false);
-    //console.log("move", move[0], move[1]);
-    //console.log(probabilitiesToString(probabilities));
-    //console.log(game.toString());
     if (result !== null) return result;
   }
-}
-
-function probabilitiesToString(probabilities) {
-    var result = "";
-    for (var i = 0; i < probabilities.length; i++) {
-      for (var j = 0; j < probabilities.length; j++) {
-        result += probabilities[i][j].map(function(d) {
-          return d.toFixed(2)
-        }).join(",") + " | ";
-      }
-      result += "\n";
-    }
-    return result;
 }
 
 function playManyGames() {
@@ -100,7 +82,4 @@ function playManyGames() {
   console.log("Lost: " + attempts.filter(d => d == "loss" ).length + " games.");
 }
 
-
 playManyGames();
-//console.log(playGame());
-
