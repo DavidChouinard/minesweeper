@@ -76,10 +76,13 @@ function playGame() {
 
 function playManyGames() {
   console.log("Playing " + TRIES + " games. (" + SIZE + "x" + SIZE + ")");
+  console.time("runtime");
+
   var attempts = _(TRIES).times(playGame);
 
   console.log("Won:  " + attempts.filter(d => d == "win" ).length + " games.");
   console.log("Lost: " + attempts.filter(d => d == "loss" ).length + " games.");
+  console.timeEnd("runtime");
 }
 
 playManyGames();
